@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import TextTransition, { presets } from "react-text-transition";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const TEXTS = [
   "schools",
@@ -61,18 +62,22 @@ export function Landingpage() {
           </a>
         </div>
         <div className='flex space-x-4'>
-          <Button
-            className='bg-blue-400 text-white'
-            variant='outline'
-          >
-            Login
-          </Button>
-          <Button
-            className='bg-blue-500 text-white'
-            variant='outline'
-          >
-            Sign up
-          </Button>
+          <Link href='/sign-in'>
+            <Button
+              className='bg-blue-400 text-white'
+              variant='outline'
+            >
+              Login
+            </Button>
+          </Link>
+          <Link href='/sign-up'>
+            <Button
+              className='bg-blue-500 text-white'
+              variant='outline'
+            >
+              Sign up
+            </Button>
+          </Link>
         </div>
       </nav>
       <section className='bg-blue-600 pt-16 pb-32'>
