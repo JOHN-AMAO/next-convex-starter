@@ -6,15 +6,17 @@ const page = () => {
     <>
       <div className='bg-blue-700 h-screen flex flex-col gap-4 justify-center items-center'>
         <div className=''>
-          <h1 className='text-2xl'>Pick the option that best suits you:</h1>
+          <h1 className='text-2xl font-bold'>
+            Pick the option that best suits you:
+          </h1>
         </div>
         <div className='flex flex-wrap gap-4 justify-center items-center'>
           <VerifyBox
-            type='student'
+            type='Student'
             src='/student.png'
           />
           <VerifyBox
-            type='school'
+            type='School'
             src='/school.png'
           />
           <VerifyBox
