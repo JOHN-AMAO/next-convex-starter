@@ -4,6 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import TextTransition, { presets } from "react-text-transition";
 import { useEffect, useState } from "react";
+import { SignInButton, UserButton } from "@clerk/clerk-react";
+import { Authenticated, Unauthenticated } from "convex/react";
+import { useConvexAuth } from "convex/react";
 import Link from "next/link";
 
 const TEXTS = [
@@ -15,6 +18,7 @@ const TEXTS = [
 ];
 export function Landingpage() {
   const [index, setIndex] = useState(0);
+  const { isAuthenticated } = useConvexAuth();
 
   useEffect(() => {
     const intervalId = setInterval(
@@ -62,22 +66,26 @@ export function Landingpage() {
           </a>
         </div>
         <div className='flex space-x-4'>
-          <Link href='/sign-in'>
-            <Button
-              className='bg-blue-400 text-white'
-              variant='outline'
-            >
-              Login
-            </Button>
-          </Link>
-          <Link href='/sign-up'>
-            <Button
-              className='bg-blue-500 text-white'
-              variant='outline'
-            >
-              Sign up
-            </Button>
-          </Link>
+          <Unauthenticated>
+            <SignInButton mode='modal'>
+              <Button
+                className='bg-blue-400 text-white'
+                variant='outline'
+              >
+                Login
+              </Button>
+            </SignInButton>
+
+            <Link href='/sign-up'>
+              <Button
+                className='bg-blue-500 text-white'
+                variant='outline'
+              >
+                Sign up
+              </Button>
+            </Link>
+          </Unauthenticated>
+          {isAuthenticated ? <UserButton afterSignOutUrl='/' /> : ""}
         </div>
       </nav>
       <section className='bg-blue-600 pt-16 pb-32'>
