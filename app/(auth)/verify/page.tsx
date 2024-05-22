@@ -20,18 +20,22 @@ const Page = () => {
           <VerifyBox
             type='Student'
             src='/student.png'
+            route='student'
           />
           <VerifyBox
             type='School'
             src='/school.png'
+            route='school'
           />
           <VerifyBox
             type='Business'
             src='/enterprise.png'
+            route='business'
           />
           <VerifyBox
             type='Government'
             src='/government.png'
+            route='government'
           />
         </div>
       </div>
