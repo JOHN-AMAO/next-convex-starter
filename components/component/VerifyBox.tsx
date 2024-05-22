@@ -17,7 +17,7 @@ const VerifyBox = ({ type, src }: any) => {
         onClick={() => {
           onClickStyle("border-blue-800 border-4");
           createUser({
-            userId: user?.id,
+            userId: user?.id ?? "",
             userType: type,
           });
         }}
